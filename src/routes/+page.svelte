@@ -56,7 +56,7 @@
 					<p class="text-blue-800">
 						For a quick overview, see the
 						<a
-							href="https://github.com/NexusDynamic/.github/blob/main/profile/FINAL-Coop_comp_paradigm-A0Poster_reduced.pdf"
+							href="/FINAL-Coop_comp_paradigm-A0Poster_reduced.pdf"
 							class="font-semibold text-blue-600 underline hover:text-blue-800"
 							target="_blank"
 							rel="noopener noreferrer"
@@ -84,20 +84,18 @@
 
 			<div class="lg:w-64">
 				<a
-					href="https://github.com/NexusDynamic/.github/blob/main/profile/FINAL-Coop_comp_paradigm-A0Poster_reduced.pdf"
+					href="/FINAL-Coop_comp_paradigm-A0Poster_reduced.pdf"
 					class="block transition-transform hover:scale-105"
 					target="_blank"
 					rel="noopener noreferrer"
 				>
 					<div class="rounded-lg border bg-white p-4 shadow-md">
 						<div class="aspect-[208/293] rounded bg-gray-200">
-							<div class="flex h-full items-center justify-center text-gray-500">
-								<div class="text-center">
-									<div class="mb-2 text-4xl">📄</div>
-									<div class="text-sm">Conference Poster</div>
-									<div class="text-xs">Click to view PDF</div>
-								</div>
-							</div>
+							<img
+								src="/poster-thumbnail.jpg"
+								alt="Poster for the framework and paradigm"
+								class="h-full w-full object-cover"
+							/>
 						</div>
 						<p class="mt-2 text-sm text-gray-600">
 							Preview of the conference poster for the framework and paradigm
