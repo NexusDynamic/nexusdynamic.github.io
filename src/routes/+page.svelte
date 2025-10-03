@@ -10,34 +10,39 @@
 	/>
 </svelte:head>
 
-<main class="min-h-screen bg-white">
-	<div class="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
+<main class="min-h-screen">
+	<!-- gradient backdrop -->
+	<div
+		class="fixed inset-0 -z-10 bg-gradient-to-br from-purple-950/30 to-zinc-950"
+		aria-hidden="true"
+	></div>
+	<div class="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8 z-10">
 		<!-- Hero Section -->
 		<section class="text-center">
 			<div class="mx-auto mb-8 max-w-2xl">
 				<img
 					src="/nexusdynamic.svg"
 					alt="NexusDynamic logo showing a central slowly pulsing circular node with spokes connecting to surrounding nodes that have different shapes (circles, squares, triangles, hexagon, etc)"
-					class="mx-auto h-64 w-64 sm:h-80 sm:w-80"
+					class="mx-auto h-64 w-64 sm:h-80 sm:w-80 shadow-xl"
 					title="NexusDynamic"
 				/>
 			</div>
 
 			<div class="mb-12">
-				<h1 class="mb-4 text-3xl font-bold text-gray-900 sm:text-4xl lg:text-5xl">
+				<h1 class="mb-4 text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
 					<strong>Multimodal group social dynamics research</strong>
 					<span class="text-2xl">🌍 🌟</span>
 				</h1>
-				<p class="mb-8 text-xl text-gray-600 italic">— for everyone</p>
+				<p class="mb-8 text-xl text-gray-300 italic">— for everyone</p>
 
-				<div class="mx-auto max-w-4xl text-lg leading-relaxed text-gray-700">
+				<div class="mx-auto max-w-4xl text-lg leading-relaxed text-gray-200">
 					<p>
 						This project and collection of packages has the goal of creating a group-first,
 						cross-platform suite of tools that make it easy to start collecting behavioural, EEG,
 						MoCap or any other data source that either already has an integration with
 						<a
 							href="https://labstreaminglayer.org/"
-							class="text-blue-600 underline hover:text-blue-800">Lab Streaming Layer</a
+							class="text-blue-400 underline hover:text-blue-300">Lab Streaming Layer</a
 						>, or, any kind of API for consuming data, which can then be collected or forwarded on
 						as an LSL stream.
 					</p>
@@ -48,16 +53,16 @@
 		<!-- Poster Section -->
 		<section class="mb-16 flex flex-col items-center lg:flex-row lg:items-start lg:gap-8">
 			<div class="mb-8 lg:mb-0 lg:flex-1">
-				<div class="rounded-lg border bg-blue-50 p-6">
+				<div class="rounded-lg border border-blue-600 bg-blue-900/30 p-6">
 					<div class="mb-4 flex items-center">
 						<div class="mr-3 text-2xl">💡</div>
-						<h3 class="text-lg font-semibold text-blue-900">Tip</h3>
+						<h3 class="text-lg font-semibold text-blue-200">Tip</h3>
 					</div>
-					<p class="text-blue-800">
+					<p class="text-blue-100">
 						For a quick overview, see the
 						<a
 							href="/FINAL-Coop_comp_paradigm-A0Poster_reduced.pdf"
-							class="font-semibold text-blue-600 underline hover:text-blue-800"
+							class="font-semibold text-blue-300 underline hover:text-blue-200"
 							target="_blank"
 							rel="noopener noreferrer"
 						>
@@ -66,15 +71,15 @@
 					</p>
 				</div>
 
-				<div class="mt-6 rounded-lg border bg-gray-50 p-6">
+				<div class="mt-6 rounded-lg border border-gray-600 bg-gray-800/30 p-6">
 					<div class="mb-4 flex items-center">
 						<div class="mr-3 text-2xl">📝</div>
-						<h3 class="text-lg font-semibold text-gray-900">Note</h3>
+						<h3 class="text-lg font-semibold text-gray-200">Note</h3>
 					</div>
-					<p class="mb-2 font-semibold text-gray-800">
+					<p class="mb-2 font-semibold text-gray-200">
 						<strong>Does this already sound too complicated?</strong> 🥴
 					</p>
-					<p class="text-gray-700">
+					<p class="text-gray-300">
 						Don't worry, it is still early days, but already some basic functionality, such as
 						validating latency and timing in your lab, is already as simple as running an app on
 						whatever devices you plan to use in research.
@@ -89,7 +94,7 @@
 					target="_blank"
 					rel="noopener noreferrer"
 				>
-					<div class="rounded-lg border bg-white p-4 shadow-md">
+					<div class="rounded-lg border border-gray-600 bg-gray-800/50 p-4 shadow-md">
 						<div class="aspect-[208/293] rounded bg-gray-200">
 							<img
 								src="/poster-thumbnail.jpg"
@@ -97,7 +102,7 @@
 								class="h-full w-full object-cover"
 							/>
 						</div>
-						<p class="mt-2 text-sm text-gray-600">
+						<p class="mt-2 text-sm text-gray-300">
 							Preview of the conference poster for the framework and paradigm
 						</p>
 					</div>
@@ -107,42 +112,42 @@
 
 		<!-- Project Components -->
 		<section class="mb-16">
-			<h2 class="mb-8 text-3xl font-bold text-gray-900">Project Components</h2>
+			<h2 class="mb-8 text-3xl font-bold text-white">Project Components</h2>
 
 			<!-- Core -->
 			<div class="mb-12">
-				<h3 class="mb-6 text-2xl font-semibold text-gray-800">
+				<h3 class="mb-6 text-2xl font-semibold text-gray-200">
 					Core <span class="text-xl">🍎</span>
 				</h3>
-				<div class="rounded-lg border bg-white p-6 shadow-sm">
-					<p class="mb-4 text-gray-700">
+				<div class="rounded-lg border border-gray-600 bg-gray-800/30 p-6 shadow-sm">
+					<p class="mb-4 text-gray-200">
 						The core of this project is the
 						<a
 							href="https://github.com/NexusDynamic/liblsl.dart/tree/main/packages/liblsl"
-							class="text-blue-600 underline hover:text-blue-800"
+							class="text-blue-400 underline hover:text-blue-300"
 						>
 							Dart native liblsl wrapper
 						</a>
 						which makes LSL integration into your project a breeze.
 					</p>
-					<p class="text-gray-700">
+					<p class="text-gray-200">
 						This already supports <strong>Android</strong>, <strong>iOS</strong>,
 						<strong>Linux</strong>, <strong>MacOS</strong> and <strong>Windows</strong>.
 					</p>
 				</div>
 
 				<div class="mt-6">
-					<h4 class="mb-4 text-xl font-semibold text-gray-800">
+					<h4 class="mb-4 text-xl font-semibold text-gray-200">
 						Device Specific Libraries <span class="text-lg">📱</span>
 					</h4>
-					<div class="rounded-lg border bg-gray-50 p-6">
-						<p class="text-gray-700">
+					<div class="rounded-lg border border-gray-600 bg-gray-800/50 p-6">
+						<p class="text-gray-200">
 							While it's pretty easy to get the liblsl dart native library working in most
 							environments, sometimes a little extra effort is required, and as such, there is a
 							liblsl
 							<a
 								href="https://github.com/NexusDynamic/Bela-liblsl"
-								class="text-blue-600 underline hover:text-blue-800"
+								class="text-blue-400 underline hover:text-blue-300"
 							>
 								pre-compiled build for the Bela
 							</a>
@@ -154,15 +159,15 @@
 
 			<!-- Add-on Packages -->
 			<div class="mb-12">
-				<h3 class="mb-6 text-2xl font-semibold text-gray-800">Add-on Packages</h3>
+				<h3 class="mb-6 text-2xl font-semibold text-gray-200">Add-on Packages</h3>
 
 				<div class="mb-8">
-					<h4 class="mb-4 text-xl font-semibold text-gray-800">
+					<h4 class="mb-4 text-xl font-semibold text-gray-200">
 						Timing and Latency Analysis <span class="text-lg">🕦</span>
 					</h4>
 					<div class="space-y-4">
-						<div class="rounded-lg border bg-white p-6 shadow-sm">
-							<ul class="space-y-3 text-gray-700">
+						<div class="rounded-lg border border-gray-600 bg-gray-800/30 p-6 shadow-sm">
+							<ul class="space-y-3 text-gray-200">
 								<li>
 									<strong>liblsl_coordinator</strong> - currently work in progress tool to automatically
 									coordinate, control and set up communication between all the devices involved in your
@@ -171,7 +176,7 @@
 								<li>
 									<a
 										href="https://github.com/NexusDynamic/liblsl.dart/tree/main/packages/liblsl_timing"
-										class="text-blue-600 underline hover:text-blue-800"
+										class="text-blue-400 underline hover:text-blue-300"
 									>
 										<strong>liblsl_timing</strong>
 									</a>
@@ -181,7 +186,7 @@
 								<li>
 									<a
 										href="https://github.com/NexusDynamic/liblsl.dart/tree/main/packages/liblsl_analysis"
-										class="text-blue-600 underline hover:text-blue-800"
+										class="text-blue-400 underline hover:text-blue-300"
 									>
 										<strong>liblsl_analysis</strong>
 									</a>
@@ -189,18 +194,18 @@
 								</li>
 							</ul>
 						</div>
-						<div class="rounded-lg border bg-blue-50 p-6">
-							<p class="text-blue-800">
+						<div class="rounded-lg border border-blue-600 bg-blue-900/30 p-6">
+							<p class="text-blue-100">
 								If you have a
 								<a
 									href="https://bela.io/"
-									class="font-semibold text-blue-600 underline hover:text-blue-800"
+									class="font-semibold text-blue-400 underline hover:text-blue-300"
 								>
 									Bela
 								</a>,
 								<a
 									href="https://github.com/NexusDynamic/bela-lsl-timing"
-									class="font-semibold text-blue-600 underline hover:text-blue-800"
+									class="font-semibold text-blue-400 underline hover:text-blue-300"
 								>
 									code is available
 								</a>
@@ -214,15 +219,15 @@
 
 		<!-- Experimental Paradigm -->
 		<section class="mb-16">
-			<h2 class="mb-6 text-3xl font-bold text-gray-900">
+			<h2 class="mb-6 text-3xl font-bold text-white">
 				Experimental Paradigm for Simultaneous Cooperation and Competition
 				<span class="text-2xl">🤝</span>
 			</h2>
-			<div class="rounded-lg border bg-white p-8 shadow-sm">
-				<p class="mb-4 text-gray-700">
+			<div class="rounded-lg border border-gray-600 bg-gray-800/30 p-8 shadow-sm">
+				<p class="mb-4 text-gray-200">
 					<a
 						href="https://github.com/NexusDynamic/RiseTogether"
-						class="text-blue-600 underline hover:text-blue-800"
+						class="text-blue-400 underline hover:text-blue-300"
 					>
 						<strong>RiseTogether</strong>
 					</a>
@@ -231,43 +236,43 @@
 					framework for automatically coordinating and configuring the experiment in different labs,
 					on different devices, with different numbers of participants.
 				</p>
-				<p class="text-gray-700">For more info see the repository or the poster linked above.</p>
+				<p class="text-gray-200">For more info see the repository or the poster linked above.</p>
 			</div>
 		</section>
 
 		<!-- Related Packages -->
 		<section class="mb-16">
-			<h2 class="mb-6 text-3xl font-bold text-gray-900">Related packages</h2>
-			<div class="rounded-lg border bg-white p-8 shadow-sm">
-				<p class="mb-6 text-gray-700">
+			<h2 class="mb-6 text-3xl font-bold text-white">Related packages</h2>
+			<div class="rounded-lg border border-gray-600 bg-gray-800/30 p-8 shadow-sm">
+				<p class="mb-6 text-gray-200">
 					Some useful packages have been developed for Flutter and Dart development which may be
 					useful more generally beyond group research projects and can be added to apps by
 					developers, these are:
 				</p>
-				<ul class="space-y-4 text-gray-700">
+				<ul class="space-y-4 text-gray-200">
 					<li>
 						<a
 							href="https://pub.dev/packages/flutter_multicast_lock"
-							class="text-blue-600 underline hover:text-blue-800"
+							class="text-blue-400 underline hover:text-blue-300"
 						>
 							<strong>flutter_multicast_lock</strong>
 						</a>
 						(<a
 							href="https://github.com/NexusDynamic/flutter_multicast_lock"
-							class="text-blue-600 underline hover:text-blue-800">source</a
+							class="text-blue-400 underline hover:text-blue-300">source</a
 						>) - a package to acquire multicast locks on Android (but won't break on other
 						platforms)
 					</li>
 					<li>
 						<a
 							href="https://pub.dev/packages/flutter_refresh_rate_control"
-							class="text-blue-600 underline hover:text-blue-800"
+							class="text-blue-400 underline hover:text-blue-300"
 						>
 							<strong>flutter_refresh_rate_control</strong>
 						</a>
 						(<a
 							href="https://github.com/NexusDynamic/flutter_refresh_rate_control"
-							class="text-blue-600 underline hover:text-blue-800">source</a
+							class="text-blue-400 underline hover:text-blue-300">source</a
 						>) - a package that helps attempt to make android and iOS devices use the highest
 						refresh rate possible for their screen (e.g. ProMotion) and tries to disable Android's
 						Adaptive Refresh Rate (ARR)
@@ -275,13 +280,13 @@
 					<li>
 						<a
 							href="https://pub.dev/packages/easy_shared_preferences"
-							class="text-blue-600 underline hover:text-blue-800"
+							class="text-blue-400 underline hover:text-blue-300"
 						>
 							<strong>easy_shared_preferences</strong>
 						</a>
 						(<a
 							href="https://github.com/NexusDynamic/easy_shared_preferences"
-							class="text-blue-600 underline hover:text-blue-800">source</a
+							class="text-blue-400 underline hover:text-blue-300">source</a
 						>) - a package that wraps shared_preferences to make managing your flutter app settings
 						easier and modular
 					</li>
@@ -291,11 +296,11 @@
 
 		<!-- Footer -->
 		<footer class="mt-16 border-t pt-8 text-center">
-			<p class="text-gray-600">
+			<p class="text-gray-300">
 				Learn more at
 				<a
 					href="https://github.com/NexusDynamic"
-					class="text-blue-600 underline hover:text-blue-800"
+					class="text-blue-400 underline hover:text-blue-300"
 				>
 					github.com/NexusDynamic
 				</a>
