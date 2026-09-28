@@ -1,310 +1,68 @@
 <script lang="ts">
-	// No additional logic needed for static content
+	import { featured, heroLinks, research, sections, site } from '$lib/content';
+	import FeatureCard from '$lib/components/FeatureCard.svelte';
+	import LinkButton from '$lib/components/LinkButton.svelte';
+	import Section from '$lib/components/Section.svelte';
 </script>
 
-<svelte:head>
-	<title>NexusDynamic - Multimodal Group Social Dynamics Research</title>
-	<meta
-		name="description"
-		content="Multimodal group social dynamics research tools - creating a group-first, cross-platform suite for behavioral, EEG, MoCap, and other data collection."
-	/>
-</svelte:head>
+<div class="flex flex-col gap-20 sm:gap-24">
+	<section class="flex flex-col items-center gap-6 pt-10 text-center sm:pt-16">
+		<img
+			src="/nexusdynamic.svg"
+			alt="NexusDynamic logo: a central pulsing node connected to surrounding nodes of different shapes"
+			class="size-44 sm:size-56"
+			width="224"
+			height="224"
+		/>
+		<h1 class="max-w-3xl text-4xl font-bold tracking-tight text-balance text-white sm:text-5xl">
+			{site.tagline}
+		</h1>
+		<p class="max-w-2xl text-lg leading-relaxed text-pretty text-zinc-300">{site.intro}</p>
+		<div class="flex flex-wrap justify-center gap-3">
+			{#each heroLinks as link, i (link.href)}
+				<LinkButton {link} primary={i === 0} />
+			{/each}
+		</div>
+	</section>
 
-<main class="min-h-screen">
-	<!-- gradient backdrop -->
-	<div
-		class="fixed inset-0 -z-10 bg-gradient-to-br from-purple-950/30 to-zinc-950"
-		aria-hidden="true"
-	></div>
-	<div class="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8 z-10">
-		<!-- Hero Section -->
-		<section class="text-center">
-			<div class="mx-auto mb-8 max-w-2xl">
-				<img
-					src="/nexusdynamic.svg"
-					alt="NexusDynamic logo showing a central slowly pulsing circular node with spokes connecting to surrounding nodes that have different shapes (circles, squares, triangles, hexagon, etc)"
-					class="mx-auto h-64 w-64 sm:h-80 sm:w-80 shadow-xl"
-					title="NexusDynamic"
-				/>
-			</div>
-
-			<div class="mb-12">
-				<h1 class="mb-4 text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
-					<strong>Multimodal group social dynamics research</strong>
-					<span class="text-2xl">🌍 🌟</span>
-				</h1>
-				<p class="mb-8 text-xl text-gray-300 italic">— for everyone</p>
-
-				<div class="mx-auto max-w-4xl text-lg leading-relaxed text-gray-200">
-					<p>
-						This project and collection of packages has the goal of creating a group-first,
-						cross-platform suite of tools that make it easy to start collecting behavioural, EEG,
-						MoCap or any other data source that either already has an integration with
-						<a
-							href="https://labstreaminglayer.org/"
-							class="text-blue-400 underline hover:text-blue-300">Lab Streaming Layer</a
-						>, or, any kind of API for consuming data, which can then be collected or forwarded on
-						as an LSL stream.
-					</p>
-				</div>
-			</div>
-		</section>
-
-		<!-- Poster Section -->
-		<section class="mb-16 flex flex-col items-center lg:flex-row lg:items-start lg:gap-8">
-			<div class="mb-8 lg:mb-0 lg:flex-1">
-				<div class="rounded-lg border border-blue-600 bg-blue-900/30 p-6">
-					<div class="mb-4 flex items-center">
-						<div class="mr-3 text-2xl">💡</div>
-						<h3 class="text-lg font-semibold text-blue-200">Tip</h3>
-					</div>
-					<p class="text-blue-100">
-						For a quick overview, see the
-						<a
-							href="/FINAL-Coop_comp_paradigm-A0Poster_reduced.pdf"
-							class="font-semibold text-blue-300 underline hover:text-blue-200"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							poster →
-						</a>
-					</p>
-				</div>
-
-				<div class="mt-6 rounded-lg border border-gray-600 bg-gray-800/30 p-6">
-					<div class="mb-4 flex items-center">
-						<div class="mr-3 text-2xl">📝</div>
-						<h3 class="text-lg font-semibold text-gray-200">Note</h3>
-					</div>
-					<p class="mb-2 font-semibold text-gray-200">
-						<strong>Does this already sound too complicated?</strong> 🥴
-					</p>
-					<p class="text-gray-300">
-						Don't worry, it is still early days, but already some basic functionality, such as
-						validating latency and timing in your lab, is already as simple as running an app on
-						whatever devices you plan to use in research.
-					</p>
-				</div>
-			</div>
-
-			<div class="lg:w-64">
-				<a
-					href="/FINAL-Coop_comp_paradigm-A0Poster_reduced.pdf"
-					class="block transition-transform hover:scale-105"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<div class="rounded-lg border border-gray-600 bg-gray-800/50 p-4 shadow-md">
-						<div class="aspect-[208/293] rounded bg-gray-200">
-							<img
-								src="/poster-thumbnail.jpg"
-								alt="Poster for the framework and paradigm"
-								class="h-full w-full object-cover"
-							/>
-						</div>
-						<p class="mt-2 text-sm text-gray-300">
-							Preview of the conference poster for the framework and paradigm
-						</p>
-					</div>
-				</a>
-			</div>
-		</section>
-
-		<!-- Project Components -->
-		<section class="mb-16">
-			<h2 class="mb-8 text-3xl font-bold text-white">Project Components</h2>
-
-			<!-- Core -->
-			<div class="mb-12">
-				<h3 class="mb-6 text-2xl font-semibold text-gray-200">
-					Core <span class="text-xl">🍎</span>
-				</h3>
-				<div class="rounded-lg border border-gray-600 bg-gray-800/30 p-6 shadow-sm">
-					<p class="mb-4 text-gray-200">
-						The core of this project is the
-						<a
-							href="https://github.com/NexusDynamic/liblsl.dart/tree/main/packages/liblsl"
-							class="text-blue-400 underline hover:text-blue-300"
-						>
-							Dart native liblsl wrapper
-						</a>
-						which makes LSL integration into your project a breeze.
-					</p>
-					<p class="text-gray-200">
-						This already supports <strong>Android</strong>, <strong>iOS</strong>,
-						<strong>Linux</strong>, <strong>MacOS</strong> and <strong>Windows</strong>.
-					</p>
-				</div>
-
-				<div class="mt-6">
-					<h4 class="mb-4 text-xl font-semibold text-gray-200">
-						Device Specific Libraries <span class="text-lg">📱</span>
-					</h4>
-					<div class="rounded-lg border border-gray-600 bg-gray-800/50 p-6">
-						<p class="text-gray-200">
-							While it's pretty easy to get the liblsl dart native library working in most
-							environments, sometimes a little extra effort is required, and as such, there is a
-							liblsl
-							<a
-								href="https://github.com/NexusDynamic/Bela-liblsl"
-								class="text-blue-400 underline hover:text-blue-300"
-							>
-								pre-compiled build for the Bela
-							</a>
-							(Beaglebone black) available.
-						</p>
-					</div>
-				</div>
-			</div>
-
-			<!-- Add-on Packages -->
-			<div class="mb-12">
-				<h3 class="mb-6 text-2xl font-semibold text-gray-200">Add-on Packages</h3>
-
-				<div class="mb-8">
-					<h4 class="mb-4 text-xl font-semibold text-gray-200">
-						Timing and Latency Analysis <span class="text-lg">🕦</span>
-					</h4>
-					<div class="space-y-4">
-						<div class="rounded-lg border border-gray-600 bg-gray-800/30 p-6 shadow-sm">
-							<ul class="space-y-3 text-gray-200">
-								<li>
-									<strong>liblsl_coordinator</strong> - currently work in progress tool to automatically
-									coordinate, control and set up communication between all the devices involved in your
-									experiment
-								</li>
-								<li>
-									<a
-										href="https://github.com/NexusDynamic/liblsl.dart/tree/main/packages/liblsl_timing"
-										class="text-blue-400 underline hover:text-blue-300"
-									>
-										<strong>liblsl_timing</strong>
-									</a>
-									- App based multi-device latency, sync and interactive timing tests with automatic
-									device coordination via LSL
-								</li>
-								<li>
-									<a
-										href="https://github.com/NexusDynamic/liblsl.dart/tree/main/packages/liblsl_analysis"
-										class="text-blue-400 underline hover:text-blue-300"
-									>
-										<strong>liblsl_analysis</strong>
-									</a>
-									- Analysis of results from the timing tests in liblsl_timing
-								</li>
-							</ul>
-						</div>
-						<div class="rounded-lg border border-blue-600 bg-blue-900/30 p-6">
-							<p class="text-blue-100">
-								If you have a
-								<a
-									href="https://bela.io/"
-									class="font-semibold text-blue-400 underline hover:text-blue-300"
-								>
-									Bela
-								</a>,
-								<a
-									href="https://github.com/NexusDynamic/bela-lsl-timing"
-									class="font-semibold text-blue-400 underline hover:text-blue-300"
-								>
-									code is available
-								</a>
-								to validate the end-to-end latency of devices using photodiodes and FSR sensors.
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Experimental Paradigm -->
-		<section class="mb-16">
-			<h2 class="mb-6 text-3xl font-bold text-white">
-				Experimental Paradigm for Simultaneous Cooperation and Competition
-				<span class="text-2xl">🤝</span>
-			</h2>
-			<div class="rounded-lg border border-gray-600 bg-gray-800/30 p-8 shadow-sm">
-				<p class="mb-4 text-gray-200">
-					<a
-						href="https://github.com/NexusDynamic/RiseTogether"
-						class="text-blue-400 underline hover:text-blue-300"
-					>
-						<strong>RiseTogether</strong>
-					</a>
-					is a novel videogame style paradigm for investigating simultaneous collaboration and competition
-					in groups. It is flexible allowing for varying group sizes, and is built around the dart liblsl
-					framework for automatically coordinating and configuring the experiment in different labs,
-					on different devices, with different numbers of participants.
-				</p>
-				<p class="text-gray-200">For more info see the repository or the poster linked above.</p>
-			</div>
-		</section>
-
-		<!-- Related Packages -->
-		<section class="mb-16">
-			<h2 class="mb-6 text-3xl font-bold text-white">Related packages</h2>
-			<div class="rounded-lg border border-gray-600 bg-gray-800/30 p-8 shadow-sm">
-				<p class="mb-6 text-gray-200">
-					Some useful packages have been developed for Flutter and Dart development which may be
-					useful more generally beyond group research projects and can be added to apps by
-					developers, these are:
-				</p>
-				<ul class="space-y-4 text-gray-200">
-					<li>
-						<a
-							href="https://pub.dev/packages/flutter_multicast_lock"
-							class="text-blue-400 underline hover:text-blue-300"
-						>
-							<strong>flutter_multicast_lock</strong>
-						</a>
-						(<a
-							href="https://github.com/NexusDynamic/flutter_multicast_lock"
-							class="text-blue-400 underline hover:text-blue-300">source</a
-						>) - a package to acquire multicast locks on Android (but won't break on other
-						platforms)
-					</li>
-					<li>
-						<a
-							href="https://pub.dev/packages/flutter_refresh_rate_control"
-							class="text-blue-400 underline hover:text-blue-300"
-						>
-							<strong>flutter_refresh_rate_control</strong>
-						</a>
-						(<a
-							href="https://github.com/NexusDynamic/flutter_refresh_rate_control"
-							class="text-blue-400 underline hover:text-blue-300">source</a
-						>) - a package that helps attempt to make android and iOS devices use the highest
-						refresh rate possible for their screen (e.g. ProMotion) and tries to disable Android's
-						Adaptive Refresh Rate (ARR)
-					</li>
-					<li>
-						<a
-							href="https://pub.dev/packages/easy_shared_preferences"
-							class="text-blue-400 underline hover:text-blue-300"
-						>
-							<strong>easy_shared_preferences</strong>
-						</a>
-						(<a
-							href="https://github.com/NexusDynamic/easy_shared_preferences"
-							class="text-blue-400 underline hover:text-blue-300">source</a
-						>) - a package that wraps shared_preferences to make managing your flutter app settings
-						easier and modular
-					</li>
-				</ul>
-			</div>
-		</section>
-
-		<!-- Footer -->
-		<footer class="mt-16 border-t pt-8 text-center">
-			<p class="text-gray-300">
-				Learn more at
-				<a
-					href="https://github.com/NexusDynamic"
-					class="text-blue-400 underline hover:text-blue-300"
-				>
-					github.com/NexusDynamic
-				</a>
-			</p>
-		</footer>
+	<div class="flex flex-col gap-8">
+		{#each featured as project (project.id)}
+			<FeatureCard {project} />
+		{/each}
 	</div>
-</main>
+
+	{#each sections.slice(0, 2) as section (section.id)}
+		<Section {section} />
+	{/each}
+
+	<section id={research.id} class="grid gap-8 md:grid-cols-[1fr_16rem] md:items-start">
+		<div class="flex flex-col gap-4">
+			<h2 class="text-2xl font-bold text-white sm:text-3xl">{research.title}</h2>
+			<p class="text-lg text-brand-300">{research.subtitle}</p>
+			{#each research.paragraphs as paragraph, i (i)}
+				<p class="max-w-3xl leading-relaxed text-zinc-300">{paragraph}</p>
+			{/each}
+			<div class="flex flex-wrap gap-2">
+				{#each research.links as link, i (link.href)}
+					<LinkButton {link} primary={i === 0} />
+				{/each}
+			</div>
+		</div>
+		<a
+			href={site.poster}
+			target="_blank"
+			class="block rounded-xl border border-white/10 bg-zinc-900/60 p-3 transition-transform hover:scale-[1.02]"
+		>
+			<img
+				src={research.image.src}
+				alt={research.image.alt}
+				loading="lazy"
+				class="aspect-[208/293] w-full rounded-md object-cover"
+			/>
+		</a>
+	</section>
+
+	{#each sections.slice(2) as section (section.id)}
+		<Section {section} />
+	{/each}
+</div>

@@ -1,2 +1,20 @@
 @import 'tailwindcss';
-@plugin '@tailwindcss/typography';
+
+@theme {
+	--color-brand-300: #d8b4fe;
+	--color-brand-400: #c084fc;
+	--color-brand-500: #a855f7;
+	--color-brand-700: #6b21a8;
+	--color-brand-900: #3c0366;
+}
+
+html {
+	scroll-behavior: smooth;
+	scroll-padding-top: 5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+}
