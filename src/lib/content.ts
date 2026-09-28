@@ -94,7 +94,7 @@ export const featured: (Project & { id: string; eyebrow: string })[] = [
 		icon: '/img/rise-together-icon.webp',
 		links: [
 			{ label: 'Play online', href: 'https://rt-lobby.nexusdynamic.org' },
-      { label: 'Play offline in the browser', href: 'https://nexusdynamic.org/RTGame/' },
+			{ label: 'Play offline in the browser', href: 'https://nexusdynamic.org/RTGame/' },
 			{ label: 'Downloads', href: `${gh}/RTGame/releases` },
 			{ label: 'Source', href: `${gh}/RTGame` }
 		]
