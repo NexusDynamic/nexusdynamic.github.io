@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { featured, heroLinks, research, sections, site } from '#lib/content';
+	import { featured, heroLinks, research, sections, site } from '#lib/content.ts';
 	import FeatureCard from '#lib/components/FeatureCard.svelte';
 	import LinkButton from '#lib/components/LinkButton.svelte';
 	import Section from '#lib/components/Section.svelte';

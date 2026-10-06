@@ -1,6 +1,6 @@
 <script lang="ts">
 	import '../app.css';
-	import { site } from '#lib/content';
+	import { site } from '#lib/content.ts';
 	import Footer from '#lib/components/Footer.svelte';
 	import Nav from '#lib/components/Nav.svelte';
 

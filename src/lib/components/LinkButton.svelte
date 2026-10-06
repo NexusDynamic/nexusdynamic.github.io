@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Link } from '#lib/content';
+	import type { Link } from '#lib/content.ts';
 
 	let { link, primary = false }: { link: Link; primary?: boolean } = $props();
 
