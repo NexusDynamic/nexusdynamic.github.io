@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { nav, site } from '$lib/content';
+	import { nav, site } from '#lib/content';
 </script>
 
 <header class="sticky top-0 z-20 border-b border-white/10 bg-zinc-950/80 backdrop-blur">

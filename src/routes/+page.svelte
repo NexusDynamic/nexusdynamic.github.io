@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { featured, heroLinks, research, sections, site } from '$lib/content';
-	import FeatureCard from '$lib/components/FeatureCard.svelte';
-	import LinkButton from '$lib/components/LinkButton.svelte';
-	import Section from '$lib/components/Section.svelte';
+	import { featured, heroLinks, research, sections, site } from '#lib/content';
+	import FeatureCard from '#lib/components/FeatureCard.svelte';
+	import LinkButton from '#lib/components/LinkButton.svelte';
+	import Section from '#lib/components/Section.svelte';
 </script>
 
 <div class="flex flex-col gap-20 sm:gap-24">
@@ -57,7 +57,7 @@
 				src={research.image.src}
 				alt={research.image.alt}
 				loading="lazy"
-				class="aspect-[208/293] w-full rounded-md object-cover"
+				class="aspect-208/293 w-full rounded-md object-cover"
 			/>
 		</a>
 	</section>

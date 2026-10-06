@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Section } from '$lib/content';
+	import type { Section } from '#lib/content';
 	import ProjectCard from './ProjectCard.svelte';
 
 	let { section }: { section: Section } = $props();

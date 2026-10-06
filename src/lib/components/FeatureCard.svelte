@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { featured } from '$lib/content';
+	import type { featured } from '#lib/content';
 	import LinkButton from './LinkButton.svelte';
 	import Tags from './Tags.svelte';
 

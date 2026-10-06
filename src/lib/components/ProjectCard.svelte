@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Project } from '$lib/content';
+	import type { Project } from '#lib/content';
 	import Tags from './Tags.svelte';
 
 	let { project }: { project: Project } = $props();
