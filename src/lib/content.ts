@@ -28,6 +28,9 @@ export interface Section {
 const gh = 'https://github.com/NexusDynamic';
 const monorepo = `${gh}/liblsl.dart`;
 const pkg = (name: string) => `${monorepo}/tree/main/packages/${name}`;
+const app = (name: string) => `${monorepo}/tree/main/apps/${name}`;
+const releases = (name: string) => `${monorepo}/releases?q=${name}&expanded=true`;
+const docs = 'https://nexusdynamic.org/liblsl.dart';
 const pub = (name: string) => `https://pub.dev/packages/${name}`;
 
 export const site = {
@@ -53,12 +56,14 @@ export const nav: Link[] = [
 	{ label: 'Game', href: '#rise-together' },
 	{ label: 'Packages', href: '#packages' },
 	{ label: 'Timing', href: '#timing' },
-	{ label: 'Research', href: '#research' }
+	{ label: 'Research', href: '#research' },
+	{ label: 'Guides', href: `${docs}/guides.html` }
 ];
 
 export const heroLinks: Link[] = [
-	{ label: 'Open LSL Viewer', href: 'https://nexusdynamic.org/liblsl.dart/lsl_viewer/' },
+	{ label: 'Open LSL Viewer', href: `${docs}/lsl_viewer/` },
 	{ label: 'Play Rise Together', href: 'https://rt-lobby.nexusdynamic.org' },
+	{ label: 'Guides', href: `${docs}/guides.html` },
 	{ label: 'GitHub', href: gh }
 ];
 
@@ -75,13 +80,13 @@ export const featured: (Project & { id: string; eyebrow: string })[] = [
 			src: '/img/lsl-viewer.webp',
 			alt: 'LSL Viewer showing 35 channels of EEG from an XDF recording'
 		},
-		icon: '/img/lsl-viewer-icon.webp',
+		icon: '/nexusdynamic.svg',
 		links: [
-			{ label: 'Open the web app', href: 'https://nexusdynamic.org/liblsl.dart/lsl_viewer/' },
-			{ label: 'Downloads', href: `${monorepo}/releases?q=lsl_viewer&expanded=true` },
-			{ label: 'Documentation', href: 'https://nexusdynamic.org/liblsl.dart/' },
-			{ label: 'Bridge and relay guide', href: 'https://nexusdynamic.org/liblsl.dart/relay.html' },
-			{ label: 'Source', href: `${monorepo}/tree/main/apps/lsl_viewer` }
+			{ label: 'Open the web app', href: `${docs}/lsl_viewer/` },
+			{ label: 'Downloads', href: releases('lsl_viewer') },
+			{ label: 'liblsl.dart website', href: `${docs}/` },
+			{ label: 'Bridge and relay guide', href: `${docs}/relay.html` },
+			{ label: 'Source', href: app('lsl_viewer') }
 		]
 	},
 	{
@@ -111,9 +116,10 @@ export const sections: Section[] = [
 			{
 				name: 'liblsl',
 				description:
-					'Dart and Flutter bindings for liblsl, with full parity with the C library. Makes LSL integration into your app a breeze.',
+					'A Dart and Flutter interface to the C++ liblsl library, with full parity with the C API, for sending and receiving LSL streams in an application.',
 				links: [
 					{ label: 'pub.dev', href: pub('liblsl') },
+					{ label: 'Guide', href: `${docs}/streaming-between-devices.html` },
 					{ label: 'Source', href: pkg('liblsl') },
 					{ label: 'Cite (DOI)', href: site.citation.href }
 				]
@@ -137,12 +143,22 @@ export const sections: Section[] = [
 				]
 			},
 			{
+				name: 'signal_viewer',
+				description:
+					'The viewer behind LSL Viewer as a Flutter library, with source providers for LSL streams, XDF recordings and serial devices, for applications that display their own data.',
+				links: [
+					{ label: 'pub.dev', href: pub('signal_viewer') },
+					{ label: 'Source', href: pkg('signal_viewer') }
+				]
+			},
+			{
 				name: 'lsl_tools',
 				description:
 					'The lsl command line tool: list, record to XDF, share across networks, bridge, relay, replay and generate LSL streams.',
 				links: [
+					{ label: 'pub.dev', href: pub('lsl_tools') },
 					{ label: 'Source', href: pkg('lsl_tools') },
-					{ label: 'Downloads', href: `${monorepo}/releases?q=lsl_viewer&expanded=true` }
+					{ label: 'Downloads', href: releases('lsl_viewer') }
 				]
 			},
 			{
@@ -150,6 +166,7 @@ export const sections: Section[] = [
 				description:
 					'Coordinate experiments across devices: coordinator election, membership, heartbeats and synchronised data streams over LSL, a WebSocket hub or peer-to-peer WebRTC.',
 				links: [
+					{ label: 'Guide', href: `${docs}/coordinated-experiment.html` },
 					{ label: 'peer_coordinator', href: pub('peer_coordinator') },
 					{ label: 'liblsl_coordinator', href: pub('liblsl_coordinator') },
 					{ label: 'webrtc_coordinator', href: pub('webrtc_coordinator') }
@@ -161,6 +178,7 @@ export const sections: Section[] = [
 					'Serial devices from Dart on desktop and in the browser (WebSerial). The OpenBCI Cyton driver is built on it.',
 				links: [
 					{ label: 'pub.dev', href: pub('serial_transport') },
+					{ label: 'openbci_cyton', href: pub('openbci_cyton') },
 					{ label: 'Source', href: pkg('serial_transport') }
 				]
 			}
@@ -173,15 +191,35 @@ export const sections: Section[] = [
 			'Validate latency and synchronisation in your own lab, on the devices you plan to use, before you collect any data.',
 		projects: [
 			{
-				name: 'liblsl_timing',
+				name: 'transport_timing',
 				description:
-					'An app for multi-device latency, synchronisation and interactive timing tests, with devices coordinated automatically over LSL.',
-				links: [{ label: 'Source', href: pkg('liblsl_timing') }]
+					'An app that measures one-way latency, jitter, loss and clock drift between devices over LSL, WebSocket and WebRTC, with the devices coordinated automatically.',
+				tags: ['Windows', 'macOS', 'Linux', 'Android'],
+				links: [
+					{ label: 'Guide', href: `${docs}/validating-timing.html` },
+					{ label: 'Downloads', href: releases('transport_timing') },
+					{ label: 'Source', href: app('transport_timing') }
+				]
 			},
 			{
-				name: 'liblsl_analysis',
-				description: 'Analysis of the results from liblsl_timing tests.',
-				links: [{ label: 'Source', href: pkg('liblsl_analysis') }]
+				name: 'transport_timing_analysis',
+				description:
+					'Collates and visualises the logs of a timing run from all devices: latency distributions, loss, clock offsets and drift for every pair of devices.',
+				tags: ['Web', 'Windows', 'macOS', 'Linux', 'Android'],
+				links: [
+					{ label: 'Open the web app', href: `${docs}/transport_timing_analysis/` },
+					{ label: 'Downloads', href: releases('transport_timing_analysis') },
+					{ label: 'Source', href: app('transport_timing_analysis') }
+				]
+			},
+			{
+				name: 'timing_core',
+				description:
+					'The record format and analysis behind both apps. The logs are XDF files, so they also open in other XDF tools.',
+				links: [
+					{ label: 'pub.dev', href: pub('timing_core') },
+					{ label: 'Source', href: pkg('timing_core') }
+				]
 			},
 			{
 				name: 'button_display_latency',

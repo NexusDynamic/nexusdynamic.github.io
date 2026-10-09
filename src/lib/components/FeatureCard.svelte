@@ -43,7 +43,7 @@
 					alt={project.image.alt}
 					loading="lazy"
 					width="1400"
-					height="1103"
+					height="961"
 					class="h-auto w-full rounded-lg border border-white/10"
 				/>
 			</a>
